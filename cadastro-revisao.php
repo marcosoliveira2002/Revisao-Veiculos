@@ -40,7 +40,7 @@ $logado = $_SESSION['login'];
     <h2 class="text-white" style="font-weight: bold;">Cadastro de Revisao</h2>
         <form id="form" action="enviar-revisao.php" method="POST" name="veiculos">
             <label for="campo1"></label>
-            <select name="campo1" id="campo1" class="form-select mb-3" aria-label="Default select example"  required>
+            <select name="campo1" id="campo1" class="form-select mb-3" aria-label="Default select example"  required onchange="getVeiculos()">
                 <option value="">Selecione o Proprietário: </option>
                 <?php
                 $sql = "SELECT cpf, nome FROM marcos.propietario ORDER BY nome";
@@ -61,7 +61,7 @@ $logado = $_SESSION['login'];
             </select>
 
 
-            <select name="campo2" id="campo2" class="form-select mb-3" aria-label="Default select example" required onchange="getVeiculos()">
+            <select name="campo2" id="campo2" class="form-select mb-3" aria-label="Default select example" required >
             <option value="">Selecione o Veiculo :  </option>
                
             </select>

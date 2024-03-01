@@ -26,8 +26,18 @@ function validarNumero(event) {
     
 
     selectProprietario.onchange = function () {
-        let selectVeiculo = document.getElementById('campo2');
-        fetch("get_veiculos.php?propietario_cpf")
-        selectVeiculo.innerHTML =  ;
+// console.log('...', document.getElementById('campo2').value)
+        let selectVeiculo = document.getElementById('campo1');
+        let valor = selectVeiculo.value;
+//        console.log('valor',valor);
+        fetch("get-veiculos.php?proprietario_cpf=" + valor)
+        .then( response => {
+            return response.text();
+        }) 
+        .then(texto => {
+           //console.log(texto)
+           document.getElementById('campo2').innerHTML = texto;
+        });
+        
     }
 
