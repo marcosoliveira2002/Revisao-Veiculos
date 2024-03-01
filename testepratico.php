@@ -52,8 +52,8 @@ $logado = $_SESSION['login'];
             <label for="campo2">Nome :</label>
             <input type="text" id="campo2" name="campo2">
 
-            <label for="campo3">Cpf :</label>
-            <input placeholder="Exemplo : xxx xxx xxx xx" type="text" id="campo3" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" name="campo3" required onkeypress="return validarNumero(event)">
+            <label for="cpfProprietario">Cpf :</label>
+            <input placeholder="Exemplo : xxx xxx xxx xx" type="text" id="cpfProprietario" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" name="cpfProprietario" required onkeypress="return validarNumero(event)" >
 
             <label for="campo4">Telefone :</label>
             <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="campo4" pattern="[0-9]{11}" name="campo4" required onkeypress="return validarNumero(event)">
@@ -69,7 +69,7 @@ $logado = $_SESSION['login'];
             <div class="botoesFuncoes">
             <a class="sair" href="cadastro_veiculo.php">Veiculos</a>
             <a class="sair" href="cadastro-revisao.php">Revisao</a>
-            <a class="sair" href="cadastro_tecnico.php" >Propietarios</a>
+            <a class="sair" href="cadastro_tecnico.php" >Proprietarios</a>
             
             </div>
             

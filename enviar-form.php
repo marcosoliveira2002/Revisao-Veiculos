@@ -12,7 +12,7 @@ include_once('conexao.php');
 print_r($_POST);
 
 
-$sql = "INSERT INTO marcos.propietario(cpf, nome, genero, nascimento,telefone,criacao) VALUES ('" . $_POST['campo3'] . "', '" . $_POST['campo2'] . "', '" . $_POST['campo1'] . "', '" . $_POST['campo5'] . "', '" . $_POST['campo4'] . "',NOW())";
+$sql = "INSERT INTO marcos.propietario(cpf, nome, genero, nascimento,telefone,criacao) VALUES ('" . $_POST['cpfProprietario'] . "', '" . $_POST['campo2'] . "', '" . $_POST['campo1'] . "', '" . $_POST['campo5'] . "', '" . $_POST['campo4'] . "',NOW())";
 
 $result = pg_query($cn, $sql);
 

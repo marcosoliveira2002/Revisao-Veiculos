@@ -2,13 +2,13 @@
 include_once('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $proprietario_cpf  = $_POST['campo1'];
-    $modelo = $_POST['campo2'];
+    $proprietario_cpf  = $_POST['proprietarioRevisao'];
+    $modelo = $_POST['veiculoPropietario'];
     $servico = $_POST['campo3'];
     $preco = $_POST['campo4'];
 
-    $sql = "INSERT INTO marcos.revisao (cpf_proprietario, veiculo_id, servico, preco) 
-            VALUES ('$ $proprietario_cpf', '$modelo', '$servico', '$preco')";
+    $sql = "INSERT INTO marcos.revisao (cpf_proprietario, veiculo_id, servico, valotr) 
+            VALUES ('$ $proprietario_cpf', '$veiculoPropietario', '$servico', '$preco')";
 
     $result = pg_query($cn, $sql);
 

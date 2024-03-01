@@ -22,12 +22,12 @@ function validarNumero(event) {
 
     /* Cadastro de Revisao  */
 
-    let selectProprietario = document.getElementById('campo1');
+    let selectProprietario = document.getElementById('proprietarioRevisao');
     
 
     selectProprietario.onchange = function () {
 // console.log('...', document.getElementById('campo2').value)
-        let selectVeiculo = document.getElementById('campo1');
+        let selectVeiculo = document.getElementById('proprietarioRevisao');
         let valor = selectVeiculo.value;
 //        console.log('valor',valor);
         fetch("get-veiculos.php?proprietario_cpf=" + valor)
@@ -36,8 +36,20 @@ function validarNumero(event) {
         }) 
         .then(texto => {
            //console.log(texto)
-           document.getElementById('campo2').innerHTML = texto;
+           document.getElementById('veiculoPropietario').innerHTML = texto;
         });
         
     }
 
+
+    let validaCpf = document.getElementById('cpfProprietario');
+    validaCpf.onchange = function(cpf) {
+        function cpf(v){
+            v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+            v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+            v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+                                                     //de novo (para o segundo bloco de números)
+            v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+            return v
+        }
+    }
