@@ -12,44 +12,55 @@ function validarNumero(event) {
 
 
     if ((codigoTecla >= 48 && codigoTecla <= 57) || codigoTecla == 8 || codigoTecla == 45 || charCode == 44 || charCode == 46) {
-        
-        
+
+
         return true;
     } else {
         return false;
     }
 }
 
-    /* Cadastro de Revisao  */
+/* Cadastro de Revisao  */
 
-    let selectProprietario = document.getElementById('proprietarioRevisao');
-    
+let selectProprietario = document.getElementById('proprietarioRevisao');
 
-    selectProprietario.onchange = function () {
-// console.log('...', document.getElementById('campo2').value)
-        let selectVeiculo = document.getElementById('proprietarioRevisao');
-        let valor = selectVeiculo.value;
-//        console.log('valor',valor);
-        fetch("get-veiculos.php?proprietario_cpf=" + valor)
-        .then( response => {
+
+selectProprietario.onchange = function () {
+    // console.log('...', document.getElementById('campo2').value)
+    let selectVeiculo = document.getElementById('proprietarioRevisao');
+    let valor = selectVeiculo.value;
+    //        console.log('valor',valor);
+    fetch("get-veiculos.php?proprietario_cpf=" + valor)
+        .then(response => {
             return response.text();
-        }) 
+        })
         .then(texto => {
-           //console.log(texto)
-           document.getElementById('veiculoPropietario').innerHTML = texto;
+            //console.log(texto)
+            document.getElementById('veiculoPropietario').innerHTML = texto;
         });
-        
-    }
+
+}
 
 
-    let validaCpf = document.getElementById('cpfProprietario');
-    validaCpf.onchange = function(cpf) {
-        function cpf(v){
-            v=v.replace(/\D/g,"")                    //Remove tudo o que não é dígito
-            v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-            v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-                                                     //de novo (para o segundo bloco de números)
-            v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-            return v
-        }
+function ValidaCPF() {   
+    var cpf = document.getElementById('cpfProprietario').value;
+    var cpfValido = /^(\d{3}\s?\d{3}\s?\d{3}\s?\d{2})$/;
+
+    if (!cpfValido.test(cpf)) {  
+        // CPF inválido
+        document.getElementById("cpfProprietario").value = "CPF Inválido";
     }
+}
+
+function formatarCPF() {
+    var cpf = document.getElementById('cpfProprietario');
+    var valor = cpf.value.replace(/\D/g, '');
+
+    if (valor.length > 0) {
+        valor = valor.replace(/(\d{3})(\d)/, '$1-$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1-$2');
+        valor = valor.replace(/(\d{3})(\d{2})$/, '$1-$2');
+    }
+
+    cpf.value = valor;
+}
