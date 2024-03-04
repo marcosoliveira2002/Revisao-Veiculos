@@ -36,7 +36,7 @@ $logado = $_SESSION['login'];
         <h2 class="text-white" style="font-weight: bold;">Cadastro de Proprietario</h2>
         <form id="form" action="enviar-form.php" method="POST" name="tecnicos">
             <label for="campo1"></label>
-            <select name="campo1" id="campo1" class="form-select mb-3" aria-label="Default select example" required>
+            <select style="border: 1px solid #000000;" name="campo1" id="campo1" class="form-select mb-3" aria-label="Default select example" required>
                 <option value="">Selecione o genero : </option>
                 <?php
                 $sql = "SELECT id,genero FROM marcos.genero ORDER BY id";
@@ -53,12 +53,10 @@ $logado = $_SESSION['login'];
             <input type="text" id="campo2" name="campo2">
             <label for="cpfProprietario">CPF:</label>
             <input placeholder="Exemplo: xxx-xxx-xxx-xx" maxlength="14" type="text" id="cpfProprietario" 
-            pattern="\d{3}\s?\d{3}\s?\d{3}\s?\d{2}" name="cpfProprietario" 
-            required onblur="ValidaCPF()" onkeypress="return validarNumero(event)" oninput="formatarCPF()">
-
-
-            <label for="campo4">Telefone :</label>
-            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="campo4" pattern="[0-9]{11}" name="campo4" required onkeypress="return validarNumero(event)">
+             name="cpfProprietario" 
+            required onkeypress="return validarNumero(event)" oninput="formatarCPF()" onchange="verificarCPF()">
+            <label for="telefone">Telefone :</label>
+            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="telefone" pattern="[0-9]{11}" name="campo4" required oninput="formatarTelefone()" onkeypress="return validarNumero(event)">
 
 
             <label for="campo5">Data de Nascimento :</label>
@@ -66,7 +64,7 @@ $logado = $_SESSION['login'];
 
 
 
-            <input type="submit" value="Enviar">
+            <input id="enviar" type="submit" value="Enviar">
 
             <div class="botoesFuncoes">
                 <a class="sair" href="cadastro_veiculo.php">Veiculos</a>

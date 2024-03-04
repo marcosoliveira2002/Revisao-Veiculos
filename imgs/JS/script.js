@@ -42,15 +42,69 @@ selectProprietario.onchange = function () {
 }
 
 
-function ValidaCPF() {   
-    var cpf = document.getElementById('cpfProprietario').value;
-    var cpfValido = /^(\d{3}\s?\d{3}\s?\d{3}\s?\d{2})$/;
+function validaCPF(cpfProprietario) {
+    var Soma = 0
+    var Resto
+  
+    var strCPF = String(cpfProprietario).replace(/[^\d]/g, '')
+    
+    if (strCPF.length !== 11)
+       return false
+    
+    if ([
+      '00000000000',
+      '11111111111',
+      '22222222222',
+      '33333333333',
+      '44444444444',
+      '55555555555',
+      '66666666666',
+      '77777777777',
+      '88888888888',
+      '99999999999',
+      ].indexOf(strCPF) !== -1)
+      return false
+  
+    for (i=1; i<=9; i++)
+      Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+  
+    Resto = (Soma * 10) % 11
+  
+    if ((Resto == 10) || (Resto == 11)) 
+      Resto = 0
+  
+    if (Resto != parseInt(strCPF.substring(9, 10)) )
+      return false
+  
+    Soma = 0
+  
+    for (i = 1; i <= 10; i++)
+      Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i)
+  
+    Resto = (Soma * 10) % 11
+  
+    if ((Resto == 10) || (Resto == 11)) 
+      Resto = 0
+  
+    if (Resto != parseInt(strCPF.substring(10, 11) ) )
+      return false
+  
+    return true
+  }
+  function verificarCPF() {
+    var cpfInput = document.getElementById("cpfProprietario");
+    var cpf = cpfInput.value;
 
-    if (!cpfValido.test(cpf)) {  
-        // CPF inválido
-        document.getElementById("cpfProprietario").value = "CPF Inválido";
+    if (validaCPF(cpf)) {
+        alert("CPF válido!");
+        document.getElementById("enviar").disabled = false;
+    } else {
+        alert("CPF inválido!");
+        document.getElementById("enviar").disabled = true;
+        document.getElementById("cpfProprietario").value = '';
     }
 }
+
 
 function formatarCPF() {
     var cpf = document.getElementById('cpfProprietario');
@@ -63,4 +117,18 @@ function formatarCPF() {
     }
 
     cpf.value = valor;
+
+}
+
+
+function formatarTelefone(){
+  var telefone = document.getElementById('telefone');
+  var valorTelefone = telefone.value.replace(/\D/g, '');
+  if (valorTelefone.length > 0) {
+    valorTelefone = '(' + valorTelefone.substring(0, 2) + ') ' +
+    valorTelefone.substring(2, 7) + '-' +
+     valorTelefone.substring(7, 11);
+  
+  }
+  return telefone.value=valorTelefone;
 }

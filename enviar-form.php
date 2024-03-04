@@ -1,33 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-<?php
-include_once('conexao.php');
+  <?php
+  include_once('conexao.php');
 
-print_r($_POST);
+  function limparCPF($cpf)
+  {
+    return str_replace(array('.', '-'), '', $cpf); // Remove os pontos e traços
+  }
 
+  if (isset($_POST['cpfProprietario'])) {
+    $cpfLimpo = limparCPF($_POST['cpfProprietario']);
+    $sql = "INSERT INTO marcos.propietario(cpf, nome, genero, nascimento,telefone,criacao) VALUES ('" . $cpfLimpo . "', '" . $_POST['campo2'] . "', '" . $_POST['campo1'] . "', '" . $_POST['campo5'] . "', '" . $_POST['telefone'] . "',NOW())";
 
-$sql = "INSERT INTO marcos.propietario(cpf, nome, genero, nascimento,telefone,criacao) VALUES ('" . $_POST['cpfProprietario'] . "', '" . $_POST['campo2'] . "', '" . $_POST['campo1'] . "', '" . $_POST['campo5'] . "', '" . $_POST['campo4'] . "',NOW())";
+    print_r($_POST);
 
-$result = pg_query($cn, $sql);
+    $result = pg_query($cn, $sql);
 
-  if ($result) {
-    $rows = pg_fetch_all($result);
-    
-    header('location: testepratico.php?status=success');
+    if ($result) {
+      $rows = pg_fetch_all($result);
+
+      header('location: testepratico.php?status=success');
+    } else {
+      echo "Erro na consulta: " . pg_last_error();
+      header('location: testepratico.php?status=erro');
+    }
   } else {
-    echo "Erro na consulta: " . pg_last_error();
     header('location: testepratico.php?status=erro');
+    exit;
   }
   ?>
-</body>
-</html>
-
-  
-
-
