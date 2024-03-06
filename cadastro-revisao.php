@@ -80,7 +80,7 @@ $logado = $_SESSION['login'];
 
             <div class="botoesFuncoes">
                 <a class="sair" href="testepratico.php">Inicio</a>
-                <a class="sair" href="relatorio-veiculos.php">Relatorio de Revisões</a>
+                <a class="sair" href="relatorio-revisao.php">Relatorio de Revisões</a>
 
             </div>
 
