@@ -1,26 +1,32 @@
 <?php
-include_once('conexao.php');
+  include_once('conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $proprietario_cpf  = $_POST['proprietarioRevisao'];
-    $modelo = $_POST['veiculoPropietario'];
-    $servico = $_POST['campo3'];
-    $preco = $_POST['campo4'];
+  function limparCPF($preco)
+  {
+    return str_replace(array(')','(','-','R$'), '', $preco); // Remove os pontos e traços
+  }
 
-    $sql = "INSERT INTO marcos.revisao (cpf_proprietario, veiculo_id, servico, valotr) 
-            VALUES ('$ $proprietario_cpf', '$veiculoPropietario', '$servico', '$preco')";
+  if (isset($_POST['precoRevisao'])) {
+    $cpfLimpo = limparCPF($_POST['precoRevisao']);
+    $sql = "INSERT INTO marcos.revisao(cpf_proprietario, veiculo_id, servico, valor,criacao) VALUES ('" . $_POST['proprietarioRevisao']. "', '" . $_POST['veiculoPropietario'] . "', '" . $preco . "', '" . "',NOW())";
+
+    print_r($_POST);
 
     $result = pg_query($cn, $sql);
 
     if ($result) {
-        header('Location: cadastro-revisao.php?status=success');
-        exit();
+      $rows = pg_fetch_all($result);
+
+      header('location: cadastro-revisao.php?status=success');
     } else {
-        echo "Erro na consulta: " . pg_last_error();
-        header('Location: cadastro-revisao.php?status=error');
-        exit();
+      echo "Erro na consulta: " . pg_last_error();
+      header('location: cadastro-revisao.php?status=erro');
     }
-} else {
-    echo "Método inválido para acessar esta página.";
-}
+  } else {
+    header('location: cadastro-revisao.php?status=erro');
+    exit;
+  }
+  
 ?>
+
+

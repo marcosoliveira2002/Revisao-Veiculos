@@ -71,8 +71,8 @@ $logado = $_SESSION['login'];
             <label for="campo3">Serviço :</label>
             <input placeholder="Ex : troca de óleo" type="text" id="campo3"  name="campo3" required >
 
-            <label for="campo4">Preço :</label>
-            <input type="text" id="campo4"  name="campo4" required onkeypress="return validarNumero(event)" >
+            <label for="precoRevisao">Preço :</label>
+            <input type="text" id="precoRevisao"  name="precoRevisao" required onkeypress="return validarNumero(event)" onkeyup="formatarMoeda(this)">
 
 
 

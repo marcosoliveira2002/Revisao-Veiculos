@@ -111,8 +111,8 @@ function formatarCPF() {
     var valor = cpf.value.replace(/\D/g, '');
 
     if (valor.length > 0) {
-        valor = valor.replace(/(\d{3})(\d)/, '$1-$2');
-        valor = valor.replace(/(\d{3})(\d)/, '$1-$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
         valor = valor.replace(/(\d{3})(\d{2})$/, '$1-$2');
     }
 
@@ -132,3 +132,20 @@ function formatarTelefone(){
   }
   return telefone.value=valorTelefone;
 }
+
+
+function formatarMoeda(input) {
+  // Obtém o valor do input e remove tudo que não é número
+  var valor = input.value.replace(/\D/g, '');
+
+  // Formata o valor como moeda brasileira
+  valor = (parseFloat(valor) / 100).toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+  });
+
+  input.value = valor;
+}
+
+  
+

@@ -56,7 +56,7 @@ $logado = $_SESSION['login'];
              name="cpfProprietario" 
             required onkeypress="return validarNumero(event)" oninput="formatarCPF()" onchange="verificarCPF()">
             <label for="telefone">Telefone :</label>
-            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="telefone" pattern="[0-9]{11}" name="campo4" required oninput="formatarTelefone()" onkeypress="return validarNumero(event)">
+            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="telefone"  name="telefone" required oninput="formatarTelefone()" onkeypress="return validarNumero(event)">
 
 
             <label for="campo5">Data de Nascimento :</label>
