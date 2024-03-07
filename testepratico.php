@@ -9,7 +9,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 $logado = $_SESSION['login'];
 
-
+include_once('menu.php');
 
 
 ?>
@@ -26,11 +26,11 @@ $logado = $_SESSION['login'];
 </head>
 
 <body>
-    <header>
+    <!--  <header>
         <a href="testepratico.php"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico"></a>
 
         <a class="sair" href="sair.php">SAIR</a>
-    </header>
+    </header> -->
 
     <div class="shadow-lg p-1 mb-1 rounded">
         <h2 class="text-white" style="font-weight: bold;">Cadastro de Proprietario</h2>
@@ -52,11 +52,9 @@ $logado = $_SESSION['login'];
             <label for="campo2">Nome :</label>
             <input type="text" id="campo2" name="campo2">
             <label for="cpfProprietario">CPF:</label>
-            <input placeholder="Exemplo: xxx-xxx-xxx-xx" maxlength="14" type="text" id="cpfProprietario" 
-             name="cpfProprietario" 
-            required onkeypress="return validarNumero(event)" oninput="formatarCPF()" onchange="verificarCPF()">
+            <input placeholder="Exemplo: xxx-xxx-xxx-xx" maxlength="14" type="text" id="cpfProprietario" name="cpfProprietario" required onkeypress="return validarNumero(event)" oninput="formatarCPF()" onchange="verificarCPF()">
             <label for="telefone">Telefone :</label>
-            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="telefone"  name="telefone" required oninput="formatarTelefone()" onkeypress="return validarNumero(event)">
+            <input placeholder="Exemplo : xx xxxxx xxxx" type="text" id="telefone" name="telefone" required oninput="formatarTelefone()" onkeypress="return validarNumero(event)">
 
 
             <label for="campo5">Data de Nascimento :</label>
@@ -65,15 +63,6 @@ $logado = $_SESSION['login'];
 
 
             <input id="enviar" type="submit" value="Enviar">
-
-            <div class="botoesFuncoes">
-                <a class="sair" href="cadastro_veiculo.php">Veiculos</a>
-                <a class="sair" href="cadastro-revisao.php">Revisao</a>
-                <a class="sair" href="cadastro_tecnico.php">Proprietarios</a>
-
-            </div>
-
-
 
 
 

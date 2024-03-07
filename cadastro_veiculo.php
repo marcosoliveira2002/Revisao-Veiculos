@@ -9,7 +9,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 $logado = $_SESSION['login'];
 
-
+include_once('menu.php');
 
 
 ?>
@@ -26,10 +26,10 @@ $logado = $_SESSION['login'];
 </head>
 
 <body>
-    <header>
+    <!--<header>
     <a href="testepratico.php"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico" ></a>
         <a class="sair" href="sair.php">SAIR</a>
-    </header>
+    </header> -->
 
     <div class="shadow-lg p-1 mb-1 rounded">
     <h2 class="text-white" style="font-weight: bold;">Cadastro de Veiculos</h2>
@@ -79,7 +79,7 @@ $logado = $_SESSION['login'];
 
 
             <label for="campo3">Modelo :</label>
-            <input placeholder="Exemplo : Corola" type="text" id="campo3"  name="campo3" required >
+            <input placeholder="Exemplo : Corolla" type="text" id="campo3"  name="campo3" required >
 
             <label for="campo4">Placa :</label>
             <input type="text" id="campo4" pattern="^([A-Z]{3}-\d{4}|[A-Z]{3}\d[A-Z]\d{2})$" name="campo4" required >
@@ -88,15 +88,7 @@ $logado = $_SESSION['login'];
 
             <input type="submit" value="Enviar">
 
-            <div class="botoesFuncoes">
-                <a class="sair" href="testepratico.php">Inicio</a>
-                <a class="sair" href="relatorio-veiculos.php">Relatorio de Veiculos</a>
-
-            </div>
-
-
-
-
+       
 
     </div>
 

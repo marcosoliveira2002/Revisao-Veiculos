@@ -1,9 +1,11 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
 * {
     padding: 0;
     margin: 0;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box; }
+
+ 
 
     .logo {
         margin-left: 1px;
@@ -17,8 +19,8 @@
     }
 
     body {
-        font-family: Arial, sans-serif;
-        background-color:#24252a;
+        font-family: 'Inter', sans-serif;
+        background-color:#2a2a2bf8;
         font-size: 1.2rem;
     }
 
@@ -165,6 +167,7 @@
         font-family: 'Inter', sans-serif;
         box-sizing: border-box;
     }
+    
 
  header {
     margin: 0;

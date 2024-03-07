@@ -14,7 +14,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 $logado = $_SESSION['login'];
 
-
+include_once('menu.php');
 
 
 ?>
@@ -31,16 +31,16 @@ $logado = $_SESSION['login'];
 </head>
 
 <body>
-    <header>
+    <!--<header>
     <a href="testepratico.php"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico" ></a>
         <a class="sair" href="sair.php">SAIR</a>
-    </header>
+    </header> -->
 
     <div class="shadow-lg p-1 mb-1 rounded">
-    <h2 class="text-white" style="font-weight: bold;">Cadastro de Revisao</h2>
+        <h2 class="text-white" style="font-weight: bold;">Cadastro de Revisao</h2>
         <form id="form" action="enviar-revisao.php" method="POST" name="veiculos">
             <label for="campo1"></label>
-            <select name="proprietarioRevisao" id="proprietarioRevisao" class="form-select mb-3" aria-label="Default select example"  required onchange="getVeiculos()">
+            <select name="proprietarioRevisao" id="proprietarioRevisao" class="form-select mb-3" aria-label="Default select example" required onchange="getVeiculos()">
                 <option value="">Selecione o Proprietário: </option>
                 <?php
                 $sql = "SELECT cpf, nome FROM marcos.propietario ORDER BY nome";
@@ -61,29 +61,22 @@ $logado = $_SESSION['login'];
             </select>
 
 
-            <select name="veiculoPropietario" id="veiculoPropietario" class="form-select mb-3" aria-label="Default select example" required >
-            <option value="">Selecione o Veiculo :  </option>
-               
+            <select name="veiculoPropietario" id="veiculoPropietario" class="form-select mb-3" aria-label="Default select example" required>
+                <option value="">Selecione o Veiculo : </option>
+
             </select>
 
 
 
             <label for="campo3">Serviço :</label>
-            <input placeholder="Ex : troca de óleo" type="text" id="campo3"  name="campo3" required >
+            <input placeholder="Ex : troca de óleo" type="text" id="campo3" name="campo3" required>
 
             <label for="precoRevisao">Preço :</label>
-            <input type="text" id="precoRevisao"  name="precoRevisao" required onkeypress="return validarNumero(event)" onkeyup="formatarMoeda(this)">
+            <input type="text" id="precoRevisao" name="precoRevisao" required onkeypress="return validarNumero(event)" onkeyup="formatarMoeda(this)">
 
 
 
             <input type="submit" value="Enviar">
-
-            <div class="botoesFuncoes">
-                <a class="sair" href="testepratico.php">Inicio</a>
-                <a class="sair" href="relatorio-revisao.php">Relatorio de Revisões</a>
-
-            </div>
-
 
 
 
@@ -107,13 +100,10 @@ $logado = $_SESSION['login'];
             window.history.replaceState({}, document.title, window.location.pathname)
 
         }
-
-
-
     </script>
 
 
-</script>
+    </script>
 </body>
 
 </html>

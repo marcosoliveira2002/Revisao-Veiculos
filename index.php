@@ -11,12 +11,14 @@
 </head>
 
 <body>
-  <header>
+  <!--<header>
   <a href="#"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico" ></a>
 
-  </header>
-  <div class="container">
-    <form class="tela-login" action="enviar-login.php" method="POST">
+  </header> -->
+ 
+
+  <div class="container" >
+    <form class="tela-login" style="margin-top: 5em;" action="enviar-login.php" method="POST">
       <h2 class="login"> Login </h2>
       <div class="row mt-5">
         <div class="form-floating mb-3">

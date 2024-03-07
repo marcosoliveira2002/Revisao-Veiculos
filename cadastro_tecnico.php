@@ -6,6 +6,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
     unset($_SESSION['senha']);
     header('location: sair.php');
 }
+include_once('menu.php');
 
 $logado = $_SESSION['login'];
 
@@ -27,11 +28,11 @@ $result = pg_query($cn, $sql);
 </head>
 
 <body>
-    <header>
+   <!-- <header>
     <a href="testepratico.php"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico" ></a>
 
         <a class="sair" href="sair.php">SAIR</a>
-    </header>
+    </header> -->
 
 
     <div class="shadow-lg p-1 mb-1 rounded">

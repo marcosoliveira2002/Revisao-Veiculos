@@ -23,7 +23,7 @@ if (!empty($_GET['cpf'])) {
 
  
 
-
+include_once('menu.php');
 
 
 
@@ -42,11 +42,11 @@ if (!empty($_GET['cpf'])) {
 </head>
 
 <body>
-    <header>
+    <!--<header>
     <a href="testepratico.php"><img class="logo" src="imgs/subaru-sem-fundo.png" alt="TestePratico" ></a>
 
         <a class="sair" href="sair.php">SAIR</a>
-    </header>
+    </header> -->
 
     <div class="shadow-lg p-1 mb-1 rounded">
         <form id="form" action="salvarEdit.php" method="POST" name="tecnicos">
