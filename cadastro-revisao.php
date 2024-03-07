@@ -37,7 +37,7 @@ include_once('menu.php');
     </header> -->
 
     <div class="shadow-lg p-1 mb-1 rounded">
-        <h2 class="text-white" style="font-weight: bold;">Cadastro de Revisao</h2>
+        <h2 class="text-white" style="font-weight: bold;">Cadastro de Revisões por Proprietário</h2><
         <form id="form" action="enviar-revisao.php" method="POST" name="veiculos">
             <label for="campo1"></label>
             <select name="proprietarioRevisao" id="proprietarioRevisao" class="form-select mb-3" aria-label="Default select example" required onchange="getVeiculos()">

@@ -3,7 +3,7 @@
 
   function limparCPF($cpf)
   {
-    return str_replace(array(')','(','-'), '', $cpf); // Remove os pontos e traços
+    return str_replace(array(')','(','-','.'), '', $cpf); // Remove os pontos e traços
   }
 
   if (isset($_POST['cpfProprietario'])) {

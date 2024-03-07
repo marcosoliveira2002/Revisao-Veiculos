@@ -105,7 +105,7 @@ include_once('menu.php')
             <input type="submit" value="Enviar">
 
             <div class="botoesFuncoes">
-                <a style="" class="sair" href="relatorio-veiculos.php">Voltar</a>
+                <a  class="sair" href="relatorio-veiculos.php">Voltar</a>
                 
 
             </div>
