@@ -148,4 +148,46 @@ function formatarMoeda(input) {
 }
 
   
+let modalRevisao = document.getElementById('botaoModal');
 
+selectProprietario.onclick = function() {
+  let dataInicial = document.getElementById('dataInicial').value;
+  let dataFinal= document.getElementById('dataFinal').value;
+
+  fetch("get-revisao.php?di=" + dataInicial +"&df=" + dataFinal)
+    .then(response => {
+      return response.text(); 
+    })
+    .then((texto) =>{
+        let modal = document.getElementById('modal-table');
+
+        let tr = document.createElement('tr');
+        console.log(texto);
+        
+
+        tr.innerHTML = texto;
+        
+        modal.appendChild(tr);
+
+    });
+
+}
+
+/**let selectProprietario = document.getElementById('proprietarioRevisao');
+
+
+selectProprietario.onchange = function () {
+    // console.log('...', document.getElementById('campo2').value)
+    let selectVeiculo = document.getElementById('proprietarioRevisao');
+    let valor = selectVeiculo.value;
+    //        console.log('valor',valor);
+    fetch("get-veiculos.php?proprietario_cpf=" + valor)
+        .then(response => {
+            return response.text();
+        })
+        .then(texto => {
+            //console.log(texto)
+            document.getElementById('veiculoPropietario').innerHTML = texto;
+        });
+
+} */
