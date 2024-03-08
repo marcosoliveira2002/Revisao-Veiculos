@@ -3,7 +3,9 @@
 
   function limparPreco($preco)
   {
-    return str_replace(array(')',' ','-','R$',), '', $preco); 
+     $precoNovo = str_replace(array(')',' ','-','R$','.'), '', $preco);
+     $precoNovo = str_replace((','), '.', $precoNovo);
+     return $precoNovo;
   }
 
   function limparCPF($cpf)
@@ -15,7 +17,8 @@
   if (isset($_POST['precoRevisao'])) {
     $precoLimpo = limparPreco($_POST['precoRevisao']);
     $cpfLimpo = limparCPF($_POST['proprietarioRevisao']);
-    $sql = "INSERT INTO marcos.revisao(cpf_proprietario, veiculo_id, servico, valor, data_revisao) VALUES ('" . $cpfLimpo . "', '" . $_POST['veiculoPropietario'] . "','" . $_POST['campo3']  . "' , '" . $precoLimpo . "', '" . "',NOW())";
+    $now = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO marcos.revisao(cpf_proprietario, veiculo_id, servico, valor, data_revisao) VALUES ('$cpfLimpo', '". $_POST['veiculoPropietario'] ."','" . $_POST['campo3']  . "','$precoLimpo', '$now')";  //"',NOW())";
 
     print_r($_POST);
 

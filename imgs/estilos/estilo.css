@@ -124,7 +124,8 @@
         
         text-decoration: none;
         float: right;
-        background-color: #07bebe;
+        background-color: #0b5ed7;
+         border-color: #0a58ca;
         color: white;
         font-weight: bold;
         padding: 0.3rem;
@@ -268,7 +269,8 @@ a.sair{
     
     text-decoration: none;
     float: right;
-    background-color: #07bebe;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
     color: white;
     font-weight: bold;
     padding: 0.3rem;
