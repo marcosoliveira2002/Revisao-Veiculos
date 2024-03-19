@@ -147,36 +147,13 @@ function formatarMoeda(input) {
   input.value = valor;
 }
 
+  async function modalRevisao(){
+    await fetch()
+    
   
-let modalRevisao = document.getElementById('botaoModal');
+  }
 
-selectProprietario.onclick = function() {
-  let dataInicial = document.getElementById('dataInicial').value;
-  let dataFinal= document.getElementById('dataFinal').value;
-
-  fetch("get-revisao.php?di=" + dataInicial +"&df=" + dataFinal)
-    .then(response => {
-      return response.text(); 
-    })
-    .then((texto) =>{
-        let modal = document.getElementById('modal-table');
-
-        let tr = document.createElement('tr');
-        console.log(texto);
-        
-
-        tr.innerHTML = texto;
-        
-        modal.appendChild(tr);
-
-    });
-
-}
-
-/**let selectProprietario = document.getElementById('proprietarioRevisao');
-
-
-selectProprietario.onchange = function () {
+  /**selectProprietario.onchange = function () {
     // console.log('...', document.getElementById('campo2').value)
     let selectVeiculo = document.getElementById('proprietarioRevisao');
     let valor = selectVeiculo.value;
@@ -191,3 +168,4 @@ selectProprietario.onchange = function () {
         });
 
 } */
+  
